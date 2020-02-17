@@ -1853,12 +1853,10 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <contactref element="U1" pad="3"/>
 <contactref element="U1" pad="2"/>
 <contactref element="MS2" pad="23"/>
-<wire x1="29.21" y1="21.59" x2="29.21" y2="19.685" width="0.2032" layer="1"/>
-<wire x1="29.21" y1="19.685" x2="31.496" y2="17.399" width="0.2032" layer="1"/>
-<wire x1="31.496" y1="17.399" x2="33.401" y2="15.24" width="0.2032" layer="1"/>
-<wire x1="33.401" y1="15.24" x2="34.163" y2="14.478" width="0.2032" layer="1"/>
-<wire x1="34.163" y1="14.478" x2="36.6014" y2="14.478" width="0.2032" layer="1"/>
 <wire x1="36.6014" y1="14.478" x2="36.6014" y2="13.208" width="0.2032" layer="1"/>
+<wire x1="29.21" y1="21.59" x2="29.21" y2="19.685" width="0.2032" layer="1"/>
+<wire x1="36.6014" y1="14.478" x2="34.417" y2="14.478" width="0.2032" layer="1"/>
+<wire x1="29.21" y1="19.685" x2="34.417" y2="14.478" width="0.2032" layer="1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="U1" pad="8"/>
