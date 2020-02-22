@@ -8812,7 +8812,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="V3" library="supply2" deviceset="GND" device=""/>
 <part name="C2" library="rcl" deviceset="C-US" device="C1206K" value="1000pF 2kV"/>
 <part name="SUPPLY1" library="supply2" deviceset="GND" device=""/>
-<part name="120" library="rcl" deviceset="R-US_" device="R0805"/>
+<part name="R1" library="rcl" deviceset="R-US_" device="R0805" value="120"/>
 </parts>
 <sheets>
 <sheet>
@@ -8846,7 +8846,7 @@ RJ-45 DMX PINOUT</text>
 <instance part="SUPPLY1" gate="GND" x="205.74" y="104.14" smashed="yes">
 <attribute name="VALUE" x="203.835" y="100.965" size="1.778" layer="96"/>
 </instance>
-<instance part="120" gate="G$1" x="188.468" y="148.336" rot="R90"/>
+<instance part="R1" gate="G$1" x="188.468" y="148.336" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -8924,7 +8924,7 @@ RJ-45 DMX PINOUT</text>
 <wire x1="172.72" y1="96.52" x2="162.56" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="96.52" x2="162.56" y2="154.94" width="0.1524" layer="91"/>
 <junction x="162.56" y="154.94"/>
-<pinref part="120" gate="G$1" pin="2"/>
+<pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="188.468" y1="153.416" x2="188.468" y2="154.94" width="0.1524" layer="91"/>
 <junction x="188.468" y="154.94"/>
 </segment>
@@ -8948,7 +8948,7 @@ RJ-45 DMX PINOUT</text>
 <pinref part="D2" gate="A" pin="1"/>
 <wire x1="175.26" y1="134.62" x2="175.26" y2="142.24" width="0.1524" layer="91"/>
 <junction x="175.26" y="142.24"/>
-<pinref part="120" gate="G$1" pin="1"/>
+<pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="188.468" y1="143.256" x2="188.468" y2="142.24" width="0.1524" layer="91"/>
 <junction x="188.468" y="142.24"/>
 </segment>
