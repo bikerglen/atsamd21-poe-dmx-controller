@@ -54,6 +54,7 @@ uint8_t effects_randomColorIndex;
 uint16_t effects_randomColorTimer;
 uint16_t effects_randomColors[RGB_LIGHTS];
 uint16_t effects_randomLfsr16;
+uint8_t led_timer;
 
 
 uint8_t xlatehi;
@@ -86,6 +87,7 @@ void effects_Init (void)
     effects_randomColors[i] = 0;
   }
   effects_randomLfsr16 = 2;
+  led_timer = 0;
 }
 
 
@@ -107,6 +109,16 @@ bool effects_Run (void *)
     case MODE_INDEP_RANDOM: effects_ModeIndepRandom (); break;
     case MODE_WHITE:        effects_ModeWhite ();       break;
   }  
+
+  led_timer = led_timer + 1;
+  if (led_timer & 16) {
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+  if ((led_timer & 0x3f) == 0) {
+    Serial.print (".");
+  }
 
   return true;
 }
