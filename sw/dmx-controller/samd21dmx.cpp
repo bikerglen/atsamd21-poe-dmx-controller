@@ -13,25 +13,25 @@ Uart SerialDMX (&sercom2, 0ul, 1ul, SERCOM_RX_PAD_3, UART_TX_PAD_2);
 
 void SERCOM2_Handler ()
 {
-	digitalWrite (11, HIGH);
+  // digitalWrite (11, HIGH);
 
-    if ( SERCOM2->USART.INTFLAG.bit.TXC ) {
-    	dmx.transmissionComplete();
-    } else if ( SERCOM2->USART.INTFLAG.bit.DRE ) {
-        dmx.dataRegisterEmpty();
-    }
+  if ( SERCOM2->USART.INTFLAG.bit.TXC ) {
+  	dmx.transmissionComplete();
+  } else if ( SERCOM2->USART.INTFLAG.bit.DRE ) {
+    dmx.dataRegisterEmpty();
+  }
 
-	digitalWrite (11, LOW);
+  // digitalWrite (11, LOW);
 }
 
 void setBaudRate (uint32_t baudrate)
 {
-	SERCOM2->USART.CTRLA.bit.ENABLE = 0x0u;
-	uint16_t sampleRateValue = 16;
-    uint32_t baudTimes8 = (SystemCoreClock * 8) / (sampleRateValue * baudrate);
-    SERCOM2->USART.BAUD.FRAC.FP   = (baudTimes8 % 8);
-    SERCOM2->USART.BAUD.FRAC.BAUD = (baudTimes8 / 8);
-    SERCOM2->USART.CTRLA.bit.ENABLE = 0x1u;
+  SERCOM2->USART.CTRLA.bit.ENABLE = 0x0u;
+  uint16_t sampleRateValue = 16;
+  uint32_t baudTimes8 = (SystemCoreClock * 8) / (sampleRateValue * baudrate);
+  SERCOM2->USART.BAUD.FRAC.FP   = (baudTimes8 % 8);
+  SERCOM2->USART.BAUD.FRAC.BAUD = (baudTimes8 / 8);
+  SERCOM2->USART.CTRLA.bit.ENABLE = 0x1u;
 }
 
 samd21dmx::samd21dmx ()
