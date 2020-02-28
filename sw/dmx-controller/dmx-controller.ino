@@ -40,12 +40,26 @@ void setup()
 {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
+
+/*
   while (!Serial) {
     ; // wait for serial port to connect. Needed for Leonardo only
   }
+*/
 
+  // enable user IO LED
+  pinMode (LED_BUILTIN, OUTPUT);
+  
+  // enable rs485 transceiver transmitter; also disables receiver
   pinMode (11, OUTPUT);
-  digitalWrite (11, LOW);
+  digitalWrite (11, HIGH);
+
+  // put WIZ5500 into reset, wait 250 ms, release from reset, wait 250 ms
+  pinMode (6, OUTPUT);
+  digitalWrite (6, LOW);
+  delay (250);
+  digitalWrite (6, HIGH);
+  delay (250);
   
   // start the Ethernet connection and the server:
   Ethernet.begin(mac, ip);
@@ -227,7 +241,9 @@ int ParseRequest (String request)
       }
 
       // Set Mode for Web GUI
-      guiMode = newMode;
+      if (newMode >= 0) {
+        guiMode = newMode;
+      }
     }
   } 
 
